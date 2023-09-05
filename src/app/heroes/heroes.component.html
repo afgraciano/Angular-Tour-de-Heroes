@@ -1,0 +1,17 @@
+<p>heroes works!</p>
+
+
+<!--//Actualizo el enlace en la plantilla para anunciar el nombre del héroe y mostrar ambos id y name en una pantalla de detalles
+<h2>{{hero.name}} Details</h2>-->
+
+<!--formateo el nombre del heroe para mayusculas con la palabra uppercase-->
+<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<!--<div><span>name: </span>{{hero.name}}</div> refactorizamos el area de detalles de plantilla,
+  ngModel es la sintaxis de enlace de datos bidireccional Angular, se vincula la hero.name al cuadro de texto HTML
+para que los datos puedan fluir en ambas direcciones propiedad hero.name - cuadro de texto y viseversa-->
+
+<div>
+  <label for="name">Hero name: </label>
+  <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div>
