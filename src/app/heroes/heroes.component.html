@@ -1,17 +1,41 @@
-<p>heroes works!</p>
-
+<!--<p>heroes works!</p>-->
 
 <!--//Actualizo el enlace en la plantilla para anunciar el nombre del héroe y mostrar ambos id y name en una pantalla de detalles
 <h2>{{hero.name}} Details</h2>-->
 
 <!--formateo el nombre del heroe para mayusculas con la palabra uppercase-->
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
+<!--<h2>{{hero.name | uppercase}} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>-->
 <!--<div><span>name: </span>{{hero.name}}</div> refactorizamos el area de detalles de plantilla,
   ngModel es la sintaxis de enlace de datos bidireccional Angular, se vincula la hero.name al cuadro de texto HTML
 para que los datos puedan fluir en ambas direcciones propiedad hero.name - cuadro de texto y viseversa-->
 
-<div>
+<!--<div>
   <label for="name">Hero name: </label>
   <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div>-->
+
+<!--Lista de héroes con*ngFor-->
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <!--ciclo que muestre un heroe de un arreglo de heroes-->
+    <!--Para tener acceso a cada héroe individual y enumerarlos a todos-->
+    <!--Dale estilo al héroe seleccionado-->
+    <button [class.selected]="hero === selectedHero" type="button"
+      (click)="onSelect(hero)"> <!-- Agregar un enlace de evento de clic -->
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<!--Agregar una sección de detalles-->
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} Details</h2><!--formateo el nombre del heroe para mayusculas con la palabra uppercase-->
+  <div>id: {{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
 </div>
