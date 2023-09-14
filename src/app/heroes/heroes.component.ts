@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Hero } from '../hero'; //importo la interfaz Hero
-import { HEROES } from '../mock-heroes';
-
-
+import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
+//import { HEROES } from '../mock-heroes';
 /*@Component
 ({
   selector: 'app-heroes',
@@ -10,12 +11,12 @@ import { HEROES } from '../mock-heroes';
   styleUrls: ['./heroes.component.scss']
 })*/
 
-@Component
-  ({
-    selector: 'app-heroes',
-    templateUrl: './heroes.component.html',
-    styleUrls: ['./heroes.component.css']
-  })
+@Component({
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
+})
+
 /*export class HeroesComponent
 {//refactorizo la propiedad del componente hero para que sea tipo Hero. inicializo con un id de 1 y el nombre Windstorm
   hero: Hero =
@@ -24,13 +25,30 @@ import { HEROES } from '../mock-heroes';
     name: 'Windstorm'
   };
 }*/
-export class HeroesComponent {
+export class HeroesComponent implements OnInit {
   //defina una propiedad de componente llamada heroespara exponer la HEROESmatriz para su vinculación
-  heroes = HEROES;
-  //Agregue el controlador de eventos de clic
-  selectedHero?: Hero;
+  // heroes = HEROES;
+  selectedHero?: Hero;//Agregue el controlador de eventos de clic
+
+  heroes: Hero[] = [];//reemplazo la propiedad heroes por una declaracion
+
+  constructor(private heroService: HeroService, private messageService: MessageService) { }//inyecto heroeService con parametro privado al constructor
+
+  ngOnInit(): void { //llamada de getHeroes dentro del ciclo de vida ngOnInit despues de la construccion de la instancia HeroesComponent
+    this.getHeroes();
+  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  }
+
+
+  getHeroes(): void {  //metodo para recuperar heroes del servicio
+    //this.heroes = this.heroService.getHeroes(); //devuelve un archivo observable
+    this.heroService.getHeroes()
+    .subscribe(heroes => this.heroes = heroes);
   }
 }
+
+
