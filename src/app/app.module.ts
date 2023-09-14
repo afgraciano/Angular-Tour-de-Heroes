@@ -5,17 +5,19 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here importan
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';//importo automaticamente HeroesComponent para delcararla automaticamente abajo
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';//importo automaticamente HeroesComponent para delcararla automaticamente abajo
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent//declaro automaticamente HeroesComponent
+    HeroesComponent,
+    HeroDetailComponent//declaro automaticamente HeroesComponent
   ],
- /* imports: [
-    BrowserModule,
-    AppRoutingModule
-  ], importamos FormsModule y lo cambiamos por AppRoutingModule*/
+  /* imports: [
+     BrowserModule,
+     AppRoutingModule
+   ], importamos FormsModule y lo cambiamos por AppRoutingModule*/
   imports: [
     BrowserModule,
     FormsModule

@@ -1,0 +1,11 @@
+<!--Agregar una sección de detalles-->
+
+<div *ngIf="hero">
+
+  <h2>{{hero.name | uppercase}} Details</h2><!--formateo el nombre del heroe para mayusculas con la palabra uppercase-->
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+  </div>
+</div>
