@@ -18,6 +18,18 @@ para que los datos puedan fluir en ambas direcciones propiedad hero.name - cuadr
 <!--Lista de héroes con*ngFor-->
 <h2>My Heroes</h2>
 
+<!-- plantilla para agregar un nuevo heroe-->
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button"
+    (click)="add(heroName.value); heroName.value=''">
+    Add hero
+  </button>
+</div>
+
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <!--ciclo que muestre un heroe de un arreglo de heroes-->
@@ -30,10 +42,12 @@ para que los datos puedan fluir en ambas direcciones propiedad hero.name - cuadr
     <button type="button" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
     </button><button type="button" (click)="onSelect(hero)" [class.selected]="hero ===
     selectedHero">--> <!-- Agregar un enlace de evento de clic -->
-      <!--<span class="badge">{{hero.id}}</span>
+    <!--<span class="badge">{{hero.id}}</span>
       <span class="name">{{hero.name}}</span>
     </button>-->
+    <button type="button" class="delete" title="delete hero"
+      (click)="delete(hero)">x</button><!--boton para eliminar-->
   </li>
 </ul>
 
- <!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
