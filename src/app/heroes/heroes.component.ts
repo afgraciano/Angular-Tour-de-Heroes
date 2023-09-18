@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hero } from '../hero'; //importo la interfaz Hero
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
+//import { MessageService } from '../message.service';
 //import { HEROES } from '../mock-heroes';
 /*@Component
 ({
@@ -28,20 +28,20 @@ import { MessageService } from '../message.service';
 export class HeroesComponent implements OnInit {
   //defina una propiedad de componente llamada heroespara exponer la HEROESmatriz para su vinculación
   // heroes = HEROES;
-  selectedHero?: Hero;//Agregue el controlador de eventos de clic
+  //selectedHero?: Hero;//Agregue el controlador de eventos de clic
 
   heroes: Hero[] = [];//reemplazo la propiedad heroes por una declaracion
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }//inyecto heroeService con parametro privado al constructor
+  constructor(private heroService: HeroService/*, private messageService: MessageService*/) { }//inyecto heroeService con parametro privado al constructor
 
   ngOnInit(): void { //llamada de getHeroes dentro del ciclo de vida ngOnInit despues de la construccion de la instancia HeroesComponent
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
+  /*onSelect(hero: Hero): void {
     this.selectedHero = hero;
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
+  }*/
 
 
   getHeroes(): void {  //metodo para recuperar heroes del servicio

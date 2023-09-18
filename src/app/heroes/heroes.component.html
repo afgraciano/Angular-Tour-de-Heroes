@@ -23,12 +23,17 @@ para que los datos puedan fluir en ambas direcciones propiedad hero.name - cuadr
     <!--ciclo que muestre un heroe de un arreglo de heroes-->
     <!--Para tener acceso a cada héroe individual y enumerarlos a todos-->
     <!--Dale estilo al héroe seleccionado-->
-    <button [class.selected]="hero === selectedHero" type="button"
-      (click)="onSelect(hero)"> <!-- Agregar un enlace de evento de clic -->
-      <span class="badge">{{hero.id}}</span>
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <!--elimino el boton y pongo un link enrutado hacia la siguiente pagina
+    <button type="button" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+    </button><button type="button" (click)="onSelect(hero)" [class.selected]="hero ===
+    selectedHero">--> <!-- Agregar un enlace de evento de clic -->
+      <!--<span class="badge">{{hero.id}}</span>
       <span class="name">{{hero.name}}</span>
-    </button>
+    </button>-->
   </li>
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+ <!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->
