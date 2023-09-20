@@ -13,7 +13,7 @@ import { HeroService } from '../hero.service';
   selector: 'app-hero-search',
   templateUrl: './hero-search.component.html',
   styleUrls: ['./hero-search.component.scss']
-  //styleUrls: [ './hero-search.component.css' ]
+  //styleUrls: [ './hero-search.component.css' ] //saca error dice que no devuelve string el css
 })
 export class HeroSearchComponent implements OnInit {
   heroes$!: Observable<Hero[]>;
