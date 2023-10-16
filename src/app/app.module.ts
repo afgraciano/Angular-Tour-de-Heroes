@@ -35,9 +35,9 @@ import { MessagesComponent } from './messages/messages.component';
       // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(  //El forRoot()método de configuración toma una InMemoryDataServiceclase que prepara la base de datos en memoria.
-      InMemoryDataService, { dataEncapsulation: false }//El in-memory-data.service.tsarchivo asume la función de mock-heroes.ts
-    )
+    /*HttpClientInMemoryWebApiModule.forRoot(  //El forRoot()método de configuración toma una InMemoryDataServiceclase que prepara la base de datos en memoria.
+      InMemoryDataService, { dataEncapsulation: false })*///El in-memory-data.service.tsarchivo asume la función de mock-heroes.ts
+    
   ],
   declarations: [
     AppComponent,
