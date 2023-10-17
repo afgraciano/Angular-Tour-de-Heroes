@@ -13,8 +13,8 @@ import { MessageService } from './message.service';
 export class HeroService {
 
   //private heroesUrl = 'api/heroes';  // URL to web api
-  private heroesUrl ='http://127.0.0.1:8181/tour-api/heroes';// se usa el puerto 8181 
-  /*private heroesUrl ='http://127.0.0.1:8080/tour-api/heroes';el puerto 8080 esta ocupado*/
+  /*private heroesUrl ='http://127.0.0.1:8181/tour-api/heroes';// se usa el puerto 8181 en mi caso por que el puerto 8080 esta ocupado en mi pc */
+  private heroesUrl ='http://127.0.0.1:8080/tour-api/heroes';//el puerto 8080 esta ocupado
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
